@@ -1,4 +1,4 @@
-var express = require("express");
+ar express = require("express");
 var app = express();
 console.log("Hello World");
 app.use(function(req, res, next) {
@@ -26,5 +26,8 @@ app.get(
     res.json({ time: req.time });
   }
 );
+app.get("/:word/echo", function(req, res) {
+  res.json({ echo: req.params.word });
+});
 
 module.exports = app;
