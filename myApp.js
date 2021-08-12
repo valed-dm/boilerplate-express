@@ -1,4 +1,4 @@
-ar express = require("express");
+var express = require("express");
 var app = express();
 console.log("Hello World");
 app.use(function(req, res, next) {
@@ -28,6 +28,9 @@ app.get(
 );
 app.get("/:word/echo", function(req, res) {
   res.json({ echo: req.params.word });
+});
+app.route("/name").get(function(req, res) {
+  res.json({ name: req.query.first + " " + req.query.last });
 });
 
 module.exports = app;
